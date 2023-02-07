@@ -2,7 +2,6 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreatePractitionerDto } from './dto/create-practitioner.dto';
-import { UpdatePractitionerDto } from './dto/update-practitioner.dto';
 import { Practitioner } from './entities/practitioner.entity';
 
 @Injectable()

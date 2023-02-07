@@ -1,5 +1,5 @@
 import { Trim } from 'class-sanitizer';
-import { IsEmail, IsDate, IsString } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 
 export class CreatePractitionerDto {
   @Trim()
@@ -14,13 +14,4 @@ export class CreatePractitionerDto {
 
   @IsString()
   public readonly city: string;
-
-  // @IsDate()
-  // public readonly nextApppointment: string;
-
-  // @IsDate()
-  // public readonly lastApppointment: string;
-
-  // @IsDate()
-  // public readonly registerDate: string;
 }
