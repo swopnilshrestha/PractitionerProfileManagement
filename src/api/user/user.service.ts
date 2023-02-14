@@ -6,7 +6,7 @@ import { UpdateNameDto } from './user.dto';
 import { User } from './user.entity';
 
 interface IGetUserAuthInfoRequest extends Request {
-  user: User; // or any other type
+  user: User;
 }
 
 @Injectable()
@@ -19,9 +19,12 @@ export class UserService {
     req: IGetUserAuthInfoRequest,
   ): Promise<User> {
     const user: User = <User>req.user;
-
     user.name = body.name;
-
     return this.repository.save(user);
+  }
+
+  public async findByEmail(email: string): Promise<User> {
+    const result = await this.repository.find({ where: { email } });
+    return result[0];
   }
 }

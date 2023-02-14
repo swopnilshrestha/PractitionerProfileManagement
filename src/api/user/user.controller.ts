@@ -8,7 +8,7 @@ import {
   Body,
   Inject,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '@/api/user/auth/auth.guard';
+import { JwtAuthGuard } from '@/api/user/auth/guards/auth.guard';
 import { UpdateNameDto } from './user.dto';
 import { User } from './user.entity';
 import { UserService } from './user.service';

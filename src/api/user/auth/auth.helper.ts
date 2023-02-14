@@ -25,7 +25,7 @@ export class AuthHelper {
     return this.jwt.decode(token, null);
   }
   public async validateUser(decoded: any): Promise<User> {
-    return this.repository.findOne(decoded.id);
+    return await this.repository.findOne({ where: { id: decoded.id } });
   }
   public generateToken(user: User): string {
     return this.jwt.sign({ id: user.id, email: user.email });
@@ -34,8 +34,6 @@ export class AuthHelper {
     return bcrypt.compareSync(password, userPassword);
   }
   public encodePassword(password: string): string {
-    console.log('testajshdjahsdjkahskdhaskd');
-
     const salt: string = bcrypt.genSaltSync(10);
     return bcrypt.hashSync(password, salt);
   }

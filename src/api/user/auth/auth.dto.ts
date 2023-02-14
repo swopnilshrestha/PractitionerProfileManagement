@@ -23,3 +23,10 @@ export class LoginDto {
   @IsString()
   public readonly password: string;
 }
+
+export class UserDto {
+  id: number;
+  email: string;
+  name: string;
+  lastLoginAt: Date;
+}

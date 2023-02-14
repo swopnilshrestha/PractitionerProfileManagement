@@ -8,9 +8,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   private readonly config: ConfigService;
 
   public createTypeOrmOptions(): TypeOrmModuleOptions {
-    console.log(this.config.get<string>('DATABASE_NAME'));
-    console.log(this.config.get<string>('DATABASE_USER'));
-
     return {
       type: 'postgres',
       host: this.config.get<string>('DATABASE_HOST'),
@@ -23,6 +20,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       migrationsTableName: 'typeorm_migrations',
       logger: 'file',
       synchronize: true, // never use TRUE in production!
+      autoLoadEntities: true,
     };
   }
 }

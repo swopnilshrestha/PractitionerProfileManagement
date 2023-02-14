@@ -6,8 +6,10 @@ import { User } from '@/api/user/user.entity';
 import { AuthController } from './auth.controller';
 import { AuthHelper } from './auth.helper';
 import { AuthService } from './auth.service';
-import { JwtStrategy } from './auth.strategy';
+import { JwtStrategy } from './guards/auth.strategy';
 import { ConfigService } from '@nestjs/config';
+import { UserService } from '../user.service';
+import { LocalStrategy } from './guards/local.strategy';
 
 @Module({
   imports: [
@@ -22,6 +24,6 @@ import { ConfigService } from '@nestjs/config';
     TypeOrmModule.forFeature([User]),
   ],
   controllers: [AuthController],
-  providers: [AuthService, AuthHelper, JwtStrategy],
+  providers: [AuthService, UserService, LocalStrategy, JwtStrategy, AuthHelper],
 })
 export class AuthModule {}

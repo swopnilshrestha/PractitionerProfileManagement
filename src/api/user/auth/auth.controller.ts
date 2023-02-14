@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { User } from '../user.entity';
 import { LoginDto, RegisterDto } from './auth.dto';
-import { JwtAuthGuard } from './auth.guard';
+import { JwtAuthGuard } from './guards/auth.guard';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
